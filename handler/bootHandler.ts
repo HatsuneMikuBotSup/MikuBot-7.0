@@ -2,9 +2,11 @@ import { Client } from "discord.js";
 
 export class BootHandler {
     client: Client;
+    errorHandler: any;
     commandHandler: any;
-    constructor(client: Client, commandHandler: any) {
+    constructor(client: Client, errorHandler:any, commandHandler: any) {
         this.client = client;
+        this.errorHandler = errorHandler;
         this.commandHandler = commandHandler;
     }
     async boot() {

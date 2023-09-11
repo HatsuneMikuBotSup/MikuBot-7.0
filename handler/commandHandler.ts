@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client, PermissionFlagsBits} from "discord.js";
 
 const activeCommands = [
     {
@@ -7,12 +7,16 @@ const activeCommands = [
         options: [],
         uri: "commands/ping.ts",
         file: null,
+        defaultMemberPermissions: PermissionFlagsBits.Administrator,
+        cost : 0,
     }, {
         name: "test",
         description: "Replies with test",
         options: [],
         uri: "commands/ping.ts",
         file: null,
+        defaultMemberPermissions: PermissionFlagsBits.KickMembers,
+        cost : 0,
     },
 ];
 
@@ -22,8 +26,10 @@ activeCommands.forEach((x) => {
 
 export class CommandHandler {
     client: Client;
-    constructor(client: Client) {
+    errorHandler: any;
+    constructor(client: Client, errorHandler: any) {
         this.client = client;
+        this.errorHandler = errorHandler
     }
     async handle(interaction: any) {
         const commandInteraction: any = interaction.commandName;
@@ -32,11 +38,11 @@ export class CommandHandler {
         const commandFunction: Function = activeCommand.file[commandInteraction];
         if (!commandFunction) return;
         const args = interaction.options;
-        commandFunction(interaction, args);
+        commandFunction(interaction, args, this.errorHandler);
     }
     registerCommands() {
         console.log("Registering commands");
-        this.client.application?.commands.set(activeCommands);  
+        this.client.application?.commands.set(activeCommands);
     }
 }
 
