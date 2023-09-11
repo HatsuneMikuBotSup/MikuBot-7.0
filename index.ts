@@ -1,6 +1,6 @@
 //----------------------------------------------------------------- Setup Discord.js
 
-const { Client, GatewayIntentBits, Partials, SlashCommandBuilder } = require("discord.js");
+import { Client, GatewayIntentBits, Partials, SlashCommandBuilder } from "discord.js";
 const client = new Client({
     intents: [
         GatewayIntentBits.DirectMessages,
@@ -15,9 +15,9 @@ const client = new Client({
 
 //----------------------------------------------------------------- Setup Handlers
 
-const {BootHandler} = require("./handler/bootHandler");
-const {CommandHandler} = require("./handler/commandHandler");
-const {EventHandler} = require("./handler/eventHandler");
+import { BootHandler } from "./handler/bootHandler";
+import { CommandHandler } from "./handler/commandHandler";
+import { EventHandler } from "./handler/eventHandler";
 const bootHandler = new BootHandler(client);
 const commandHandler = new CommandHandler(client);
 const eventHandler = new EventHandler(client);
