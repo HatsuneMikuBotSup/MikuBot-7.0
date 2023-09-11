@@ -18,9 +18,10 @@ const client = new Client({
 import { BootHandler } from "./handler/bootHandler";
 import { CommandHandler } from "./handler/commandHandler";
 import { EventHandler } from "./handler/eventHandler";
-const bootHandler = new BootHandler(client);
 const commandHandler = new CommandHandler(client);
 const eventHandler = new EventHandler(client);
+const bootHandler = new BootHandler(client, commandHandler);
+
 
 //----------------------------------------------------------------- Setup Client.on
 
