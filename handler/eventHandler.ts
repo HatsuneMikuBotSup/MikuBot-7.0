@@ -1,9 +1,10 @@
 import { Client } from "discord.js";
+import { ErrorHandler } from "./errorHandler";
 
 export class EventHandler {
     client: Client;
-    errorHandler: any;
-    constructor(client: Client, errorHandler: any) {
+    errorHandler: ErrorHandler;
+    constructor(client: Client, errorHandler: ErrorHandler) {
         this.client = client;
         this.errorHandler = errorHandler;
     }

@@ -1,4 +1,5 @@
-import { Client, PermissionFlagsBits} from "discord.js";
+import { ApplicationCommandOptionType, Client, PermissionFlagsBits } from "discord.js";
+import { ErrorHandler } from "./errorHandler";
 
 const activeCommands = [
     {
@@ -8,15 +9,24 @@ const activeCommands = [
         uri: "commands/ping.ts",
         file: null,
         defaultMemberPermissions: PermissionFlagsBits.Administrator,
-        cost : 0,
+        cost: 0,
+        nsfw: false,
     }, {
-        name: "test",
-        description: "Replies with test",
-        options: [],
-        uri: "commands/ping.ts",
+        name: "renameall",
+        description: "Renames all users in the server to a given name",
+        options: [
+            {
+                name: "name",
+                description: "The name to rename all users to",
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            },
+        ],
+        uri: "commands/renameall.ts",
         file: null,
-        defaultMemberPermissions: PermissionFlagsBits.KickMembers,
-        cost : 0,
+        defaultMemberPermissions: PermissionFlagsBits.Administrator,
+        cost: 0,
+        nsfw: false,
     },
 ];
 
@@ -26,8 +36,8 @@ activeCommands.forEach((x) => {
 
 export class CommandHandler {
     client: Client;
-    errorHandler: any;
-    constructor(client: Client, errorHandler: any) {
+    errorHandler: ErrorHandler;
+    constructor(client: Client, errorHandler: ErrorHandler) {
         this.client = client;
         this.errorHandler = errorHandler
     }
@@ -37,7 +47,7 @@ export class CommandHandler {
         if (!activeCommand || !activeCommand.file) return;
         const commandFunction: Function = activeCommand.file[commandInteraction];
         if (!commandFunction) return;
-        const args = interaction.options;
+        const args = interaction.options.data;
         commandFunction(interaction, args, this.errorHandler);
     }
     registerCommands() {
