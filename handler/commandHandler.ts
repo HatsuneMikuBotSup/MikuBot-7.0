@@ -1,34 +1,7 @@
 import { ApplicationCommandOptionType, Client, PermissionFlagsBits } from "discord.js";
 import { ErrorHandler } from "./errorHandler";
+import { activeCommands } from "./activeCommands";
 
-const activeCommands = [
-    {
-        name: "ping",
-        description: "Replies with pong",
-        options: [],
-        uri: "commands/ping.ts",
-        file: null,
-        defaultMemberPermissions: PermissionFlagsBits.Administrator,
-        cost: 0,
-        nsfw: false,
-    }, {
-        name: "renameall",
-        description: "Renames all users in the server to a given name",
-        options: [
-            {
-                name: "name",
-                description: "The name to rename all users to",
-                type: ApplicationCommandOptionType.String,
-                required: true,
-            },
-        ],
-        uri: "commands/renameall.ts",
-        file: null,
-        defaultMemberPermissions: PermissionFlagsBits.Administrator,
-        cost: 0,
-        nsfw: false,
-    },
-];
 
 activeCommands.forEach((x) => {
     x.file = require("../" + x.uri);

@@ -1,5 +1,3 @@
-import { MembershipScreeningFieldType } from "discord.js";
-
 export function renameall(interaction: any, args: any, errorHandler: any) {
     const name = args[0].value;
     const guild = interaction.guild;
