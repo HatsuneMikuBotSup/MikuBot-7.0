@@ -1,6 +1,6 @@
 //----------------------------------------------------------------- Setup Discord.js
 
-import { Client, GatewayIntentBits, Partials, SlashCommandBuilder } from "discord.js";
+import { Client, GatewayIntentBits, Partials } from "discord.js";
 const client = new Client({
     intents: [
         GatewayIntentBits.DirectMessages,

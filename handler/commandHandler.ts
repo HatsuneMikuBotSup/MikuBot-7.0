@@ -21,7 +21,7 @@ export class CommandHandler {
         const commandFunction: Function = activeCommand.file[commandInteraction];
         if (!commandFunction) return;
         const args = interaction.options.data;
-        commandFunction(interaction, args, this.errorHandler);
+        commandFunction(interaction, args, this.errorHandler, activeCommands);
     }
     registerCommands() {
         console.log("Registering commands");

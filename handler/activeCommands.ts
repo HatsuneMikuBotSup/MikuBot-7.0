@@ -60,5 +60,53 @@ export const activeCommands = [
         defaultMemberPermissions: PermissionFlagsBits.SendMessages,
         cost: 0,
         nsfw: false,
+    }, {
+        name: "pipebomb",
+        description: ":D",
+        options: [
+            {
+                name: "name",
+                description: "User to bomb",
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            },
+        ],
+        uri: "commands/pipebomb.ts",
+        file: null,
+        defaultMemberPermissions: PermissionFlagsBits.SendMessages,
+        cost: 0,
+        nsfw: false,
+    }, {
+        name: "fuck",
+        description: "fucking",
+        options: [
+            {
+                name: "name",
+                description: "User to fuck",
+                type: ApplicationCommandOptionType.String,
+                required: false,
+            },
+        ],
+        uri: "commands/fuck.ts",
+        file: null,
+        defaultMemberPermissions: PermissionFlagsBits.SendMessages,
+        cost: 0,
+        nsfw: false,
+    }, {
+        name: "describe",
+        description: "fucking",
+        options: [
+            {
+                name: "command",
+                description: "Command which to print the code of",
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            },
+        ],
+        uri: "commands/describe.ts",
+        file: null,
+        defaultMemberPermissions: PermissionFlagsBits.SendMessages,
+        cost: 0,
+        nsfw: false,
     },
 ];
