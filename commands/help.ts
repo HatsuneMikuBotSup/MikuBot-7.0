@@ -1,6 +1,6 @@
 import { activeCommands } from "../handler/activeCommands";
 
-export function help(interaction: any, args: any, errorHandler: any) {
+export function help(interaction: any, args: any, loggerHandler: any) {
     interaction.reply({
         embeds: [{
             title: "Help",
@@ -13,6 +13,6 @@ export function help(interaction: any, args: any, errorHandler: any) {
             })
         }]
     }).catch((x: any) => {
-        errorHandler.handle(x);
+        loggerHandler.error(x);
     });
 }

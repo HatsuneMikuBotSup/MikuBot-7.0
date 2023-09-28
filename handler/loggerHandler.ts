@@ -5,8 +5,14 @@ export class LoggerHandler {
     constructor(client: Client,) {
         this.client = client;
     }
-    async handle(error: any) {
-        console.log(error);
+    async error(error: any) {
+        console.error(error);
+    }
+    async warn(message: any) {
+        console.log(message);
+    }
+    async log(flag: any, message: any) {
+        console.log("[" + flag + "] " + message);
     }
 }
 

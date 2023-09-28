@@ -12,8 +12,9 @@ export class BootHandler {
         this.commandHandler = commandHandler;
     }
     async boot() {
+        this.loggerHandler.log("BootHandler", `Starting Boot Process`);
         this.registerCommands();
-        console.log(`${this.client.user?.tag} is ready`);
+        this.loggerHandler.log("BootHandler", `${this.client.user?.tag} is ready`);
     }
     registerCommands() {
         this.commandHandler.registerCommands();

@@ -1,4 +1,4 @@
-export function renameall(interaction: any, args: any, errorHandler: any) {
+export function renameall(interaction: any, args: any, loggerHandler: any) {
     const name = args[0].value;
     const guild = interaction.guild;
     console.log("Renaming all members to " + name);
@@ -9,20 +9,20 @@ export function renameall(interaction: any, args: any, errorHandler: any) {
             if (x.nickname?.toLowerCase().includes(name.toLowerCase())) return;
             if (x.user.username.length + name.length > 32) {
                 await x.setNickname(name).catch((x: any) => {
-                    errorHandler.handle(x);
+                    loggerHandler.error(x);
                 });
                 console.log("Renamed " + x.user.username);
             } else {
                 await x.setNickname(x.user.username + name).catch((x: any) => {
-                    errorHandler.handle(x);
+                    loggerHandler.error(x);
                 });
                 console.log("Renamed " + x.user.username);
             }
         });
         interaction.reply(`Starting to Rename ${members.size} members to ${name}`).catch((x: any) => {
-            errorHandler.handle(x);
+            loggerHandler.error(x);
         });
     }).catch((x: any) => {
-        errorHandler.handle(x);
+        loggerHandler.error(x);
     });
 }
