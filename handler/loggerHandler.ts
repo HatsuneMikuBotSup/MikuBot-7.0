@@ -1,6 +1,6 @@
 import { Client } from "discord.js";
 
-export class ErrorHandler {
+export class LoggerHandler {
     client: Client;
     constructor(client: Client,) {
         this.client = client;

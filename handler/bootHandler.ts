@@ -1,14 +1,14 @@
 import { Client } from "discord.js";
-import { ErrorHandler } from "./errorHandler";
+import { LoggerHandler } from "./loggerHandler";
 import { CommandHandler } from "./commandHandler";
 
 export class BootHandler {
     client: Client;
-    errorHandler: ErrorHandler;
+    loggerHandler: LoggerHandler;
     commandHandler: CommandHandler;
-    constructor(client: Client, errorHandler:ErrorHandler, commandHandler: CommandHandler) {
+    constructor(client: Client, loggerHandler:LoggerHandler, commandHandler: CommandHandler) {
         this.client = client;
-        this.errorHandler = errorHandler;
+        this.loggerHandler = loggerHandler;
         this.commandHandler = commandHandler;
     }
     async boot() {

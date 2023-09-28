@@ -18,11 +18,11 @@ const client = new Client({
 import { BootHandler } from "./handler/bootHandler";
 import { CommandHandler } from "./handler/commandHandler";
 import { EventHandler } from "./handler/eventHandler";
-import { ErrorHandler } from "./handler/errorHandler";
-const errorHandler = new ErrorHandler(client);
-const commandHandler = new CommandHandler(client, errorHandler);
-const eventHandler = new EventHandler(client, errorHandler);
-const bootHandler = new BootHandler(client, errorHandler, commandHandler);
+import { LoggerHandler } from "./handler/loggerHandler";
+const loggerHandler = new LoggerHandler(client);
+const commandHandler = new CommandHandler(client, loggerHandler);
+const eventHandler = new EventHandler(client, loggerHandler);
+const bootHandler = new BootHandler(client, loggerHandler, commandHandler);
 
 //----------------------------------------------------------------- Setup Client.on
 

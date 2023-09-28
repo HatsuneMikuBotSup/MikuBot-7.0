@@ -1,5 +1,5 @@
 import { ApplicationCommandOptionType, Client, PermissionFlagsBits } from "discord.js";
-import { ErrorHandler } from "./errorHandler";
+import { LoggerHandler } from "./loggerHandler";
 import { activeCommands } from "./activeCommands";
 
 
@@ -9,10 +9,10 @@ activeCommands.forEach((x) => {
 
 export class CommandHandler {
     client: Client;
-    errorHandler: ErrorHandler;
-    constructor(client: Client, errorHandler: ErrorHandler) {
+    loggerHandler: LoggerHandler;
+    constructor(client: Client, loggerHandler: LoggerHandler) {
         this.client = client;
-        this.errorHandler = errorHandler
+        this.loggerHandler = loggerHandler
     }
     async handle(interaction: any) {
         const commandInteraction: any = interaction.commandName;
@@ -21,7 +21,7 @@ export class CommandHandler {
         const commandFunction: Function = activeCommand.file[commandInteraction];
         if (!commandFunction) return;
         const args = interaction.options.data;
-        commandFunction(interaction, args, this.errorHandler, activeCommands);
+        commandFunction(interaction, args, this.loggerHandler, activeCommands);
     }
     registerCommands() {
         console.log("Registering commands");
