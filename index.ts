@@ -19,10 +19,12 @@ import { BootHandler } from "./handler/bootHandler";
 import { CommandHandler } from "./handler/commandHandler";
 import { EventHandler } from "./handler/eventHandler";
 import { LoggerHandler } from "./handler/loggerHandler";
+import { GuildHandler } from "./handler/guildHandler";
 const loggerHandler = new LoggerHandler(client);
 const commandHandler = new CommandHandler(client, loggerHandler);
 const eventHandler = new EventHandler(client, loggerHandler);
 const bootHandler = new BootHandler(client, loggerHandler, commandHandler);
+const guildHandler = new GuildHandler(client, loggerHandler);
 
 //----------------------------------------------------------------- Setup Client.on
 
@@ -34,6 +36,11 @@ client.on("interactionCreate", async (interaction: any) => {
     if (!interaction.isChatInputCommand()) return;
     commandHandler.handle(interaction);
 });
+
+client.on("guildCreate", async(guild) => {
+    guildHandler.join(guild);
+});
+
 
 //----------------------------------------------------------------- Client login
 
