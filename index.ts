@@ -20,8 +20,10 @@ import { CommandHandler } from "./handler/commandHandler";
 import { EventHandler } from "./handler/eventHandler";
 import { LoggerHandler } from "./handler/loggerHandler";
 import { GuildHandler } from "./handler/guildHandler";
+import { MessageHandler } from "./handler/messageHandler";
 const loggerHandler = new LoggerHandler(client);
 const guildHandler = new GuildHandler(client, loggerHandler);
+const messageHandler = new MessageHandler(client, loggerHandler);
 const commandHandler = new CommandHandler(client, loggerHandler);
 const eventHandler = new EventHandler(client, loggerHandler);
 const bootHandler = new BootHandler(client, loggerHandler, commandHandler);
@@ -38,10 +40,18 @@ client.on("interactionCreate", async (interaction: any) => {
     commandHandler.handle(interaction);
 });
 
-client.on("guildCreate", async(guild) => {
+client.on("guildCreate", async (guild) => {
     guildHandler.join(guild);
 });
 
+client.on("guildMemberAdd", async (member) => {
+    //
+});
+
+client.on("messageCreate", async (message) => {
+    if (message.author.bot) return;
+    messageHandler.handle(message);
+});
 
 //----------------------------------------------------------------- Client login
 

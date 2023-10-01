@@ -12,7 +12,10 @@ export class LoggerHandler {
         console.log(message);
     }
     async log(flag: any, message: any) {
-        console.log("[" + flag + "] " + message);
+        const currentTimestamp = Date.now();
+        const date = new Date(currentTimestamp);
+        const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+        console.log(formattedDate + " [" + flag + "] " + message);
     }
 }
 

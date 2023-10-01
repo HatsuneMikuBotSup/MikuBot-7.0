@@ -26,7 +26,7 @@ export class CommandHandler {
 
     }
     registerCommands() {
-        this.loggerHandler.log("CommandHandler", "Registering commands");
+        this.loggerHandler.log("CommandHandler", "Registering Slash commands");
         this.client.application?.commands.set(activeCommands);
     }
 }

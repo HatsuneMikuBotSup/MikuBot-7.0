@@ -29,11 +29,11 @@ const fileEndings = [
     ".jpeg",
     ".gif",
     ".png",
-]
+];
 
 export function fuck(interaction: any, args: any, loggerHandler: any) {
     const name = args[0]?.value;
-    const file = randomMedia("./images/fuck/", fileEndings);
+    const file = randomMedia("./media/fuck/", fileEndings);
     const reply = replies[Math.floor(Math.random() * replies.length)] + " " + (name ? name : "<@" + interaction.member.id + ">");
     interaction.reply({ content: reply, files: [file] }).catch((x: any) => {
         loggerHandler.error(x);

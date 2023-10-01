@@ -1,5 +1,6 @@
 import { Client, Guild } from "discord.js";
 import { LoggerHandler } from "./loggerHandler";
+import { randomMedia } from "../utility/mediaSelector";
 
 
 export class GuildHandler {
@@ -10,9 +11,10 @@ export class GuildHandler {
         this.loggerHandler = loggerHandler;
     }
     join(guild: Guild) {
-        console.log("I joined a new server: " + guild.name);
-        guild.systemChannel?.send("Thanks for inviting me OwO\nThis bot is currently in Beta\nJoin our discord for help or suggestions\nhttps://discord.gg/s9bqnpBNZh");
+        this.loggerHandler.log("GuildHandlder","Joined a new server: " + guild.name)
+        const file = randomMedia("./media/cute/", [".jpg", ".jpeg", ".gif", ".png"]);
+        const reply = "Thanks for inviting me OwO\nThis bot is currently in Beta\nJoin our discord for help or suggestions\nhttps://discord.gg/s9bqnpBNZh";
+        guild.systemChannel?.send({ content: reply, files: file ? [file] : [] });
     }
 }
-
 
