@@ -91,7 +91,7 @@ export const activeCommands = [
         file: null,
         defaultMemberPermissions: PermissionFlagsBits.SendMessages,
         cost: 0,
-        nsfw: false,
+        nsfw: true,
     }, {
         name: "describe",
         description: "fucking",
