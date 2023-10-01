@@ -108,5 +108,21 @@ export const activeCommands = [
         defaultMemberPermissions: PermissionFlagsBits.SendMessages,
         cost: 0,
         nsfw: false,
+    }, {
+        name: "spam",
+        description: "spams things",
+        options: [
+            {
+                name: "spamthis",
+                description: "String which to spam",
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            },
+        ],
+        uri: "commands/spam.ts",
+        file: null,
+        defaultMemberPermissions: PermissionFlagsBits.SendMessages,
+        cost: 0,
+        nsfw: false,
     },
 ];

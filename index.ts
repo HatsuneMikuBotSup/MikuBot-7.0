@@ -21,10 +21,11 @@ import { EventHandler } from "./handler/eventHandler";
 import { LoggerHandler } from "./handler/loggerHandler";
 import { GuildHandler } from "./handler/guildHandler";
 const loggerHandler = new LoggerHandler(client);
+const guildHandler = new GuildHandler(client, loggerHandler);
 const commandHandler = new CommandHandler(client, loggerHandler);
 const eventHandler = new EventHandler(client, loggerHandler);
 const bootHandler = new BootHandler(client, loggerHandler, commandHandler);
-const guildHandler = new GuildHandler(client, loggerHandler);
+
 
 //----------------------------------------------------------------- Setup Client.on
 

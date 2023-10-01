@@ -12,7 +12,7 @@ export class CommandHandler {
     loggerHandler: LoggerHandler;
     constructor(client: Client, loggerHandler: LoggerHandler) {
         this.client = client;
-        this.loggerHandler = loggerHandler
+        this.loggerHandler = loggerHandler;
     }
     async handle(interaction: any) {
         const commandInteraction: any = interaction.commandName;
