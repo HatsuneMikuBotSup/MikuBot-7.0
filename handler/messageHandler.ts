@@ -9,7 +9,8 @@ export class MessageHandler {
         this.loggerHandler = loggerHandler;
     }
     handle(message: Message) {
-        if (message.channel.type.toString() !== "GUILD_TEXT") this.directMessage(message);
+        console.log(message.guild?.name + ": " + message.author.tag + ": " + message.content);
+        if (message.channel.type == 1) this.directMessage(message);
     }
     directMessage(message: Message) {
         message.channel.send(

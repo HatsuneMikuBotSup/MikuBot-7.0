@@ -124,5 +124,14 @@ export const activeCommands = [
         defaultMemberPermissions: PermissionFlagsBits.SendMessages,
         cost: 0,
         nsfw: false,
+    }, {
+        name: "allguilds",
+        description: "allguilds",
+        options: [],
+        uri: "commands/allguilds.ts",
+        file: null,
+        defaultMemberPermissions: PermissionFlagsBits.Administrator,
+        cost: 0,
+        nsfw: false,
     },
 ];
