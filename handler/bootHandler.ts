@@ -6,13 +6,13 @@ export class BootHandler {
     client: Client;
     loggerHandler: LoggerHandler;
     commandHandler: CommandHandler;
-    constructor(client: Client, loggerHandler:LoggerHandler, commandHandler: CommandHandler) {
+    constructor(client: Client, loggerHandler: LoggerHandler, commandHandler: CommandHandler) {
         this.client = client;
         this.loggerHandler = loggerHandler;
         this.commandHandler = commandHandler;
     }
     async boot() {
-        this.loggerHandler.log("BootHandler", `Starting Boot Process`);
+        this.loggerHandler.log("BootHandler", `---------------------------------------Starting Boot Process-------------------------------------`);
         this.registerCommands();
         this.loggerHandler.log("BootHandler", `${this.client.user?.tag} is ready`);
     }
