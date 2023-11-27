@@ -29,8 +29,6 @@ export class LoggerHandler {
         this.logger.warn(`[${flag}] ${message}`);
     }
     async log(flag: any, message: any) {
-        const currentTimestamp = Date.now();
-        const date = new Date(currentTimestamp);
         this.logger.info(`[${flag}] ${message}`);
     }
 }

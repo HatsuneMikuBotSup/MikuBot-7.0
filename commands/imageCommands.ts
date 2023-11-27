@@ -18,7 +18,7 @@ export const imageCommands = [
             "THATS THE SPOT :heart:",
             "I wont be able to walk after this :sob:",
             "STOOP :sob:",
-            "Your dick is to massive :sob:"
+            "Your dick is too massive :sob:"
         ],
         "cost": 0,
         "nsfw": true
@@ -230,7 +230,7 @@ export const imageCommands = [
             "Thats the spot",
             ":heart:",
             "Ur mine :heart:",
-            "Your dick is to MASSIVE :sob:"
+            "Your dick is too MASSIVE :sob:"
         ],
         "cost": 0,
         "nsfw": true

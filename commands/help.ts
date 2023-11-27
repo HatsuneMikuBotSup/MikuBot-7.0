@@ -12,7 +12,7 @@ export default function help(interaction: any, args: any, loggerHandler: any) {
                 }
             })
         }]
-    }).catch((x: any) => {
-        loggerHandler.error(x);
+    }).catch((error: any) => {
+        loggerHandler.error("help", error);
     });
 }

@@ -10,7 +10,7 @@ export default function pipebomb(interaction: any, args: any, loggerHandler: any
     interaction.reply({
         content: ` Yout got Mail ${name} :DDDD`,
         components: [row]
-    }).catch((x: any) => {
-        loggerHandler.error(x);
+    }).catch((error: any) => {
+        loggerHandler.error("pipebomb", error);
     });
 }
