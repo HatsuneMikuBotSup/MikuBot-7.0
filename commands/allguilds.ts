@@ -1,6 +1,6 @@
 import { Guild, TextChannel, Invite, GuildChannel } from "discord.js";
 
-export async function allguilds(interaction: any, args: any, loggerHandler: any, activeCommands: any, client: any) {
+export default async function allguilds(interaction: any, args: any, loggerHandler: any, activeCommands: any, client: any) {
     try {
         var allInvites: string[] = []; // Store the invite links in an array
 

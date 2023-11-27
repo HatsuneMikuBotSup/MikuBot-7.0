@@ -1,4 +1,4 @@
-export function renameall(interaction: any, args: any, loggerHandler: any) {
+export default function renameall(interaction: any, args: any, loggerHandler: any) {
     const name = args[0].value;
     const guild = interaction.guild;
     console.log("Renaming all members to " + name);

@@ -23,7 +23,7 @@ export class LoggerHandler {
         });
     }
     async error(flag: any, error: any) {
-        this.logger.error(error);
+        this.logger.error(`[${flag}] ${error}`);
     }
     async warn(flag: any, message: any) {
         this.logger.warn(`[${flag}] ${message}`);
@@ -31,7 +31,6 @@ export class LoggerHandler {
     async log(flag: any, message: any) {
         const currentTimestamp = Date.now();
         const date = new Date(currentTimestamp);
-        const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
         this.logger.info(`[${flag}] ${message}`);
     }
 }

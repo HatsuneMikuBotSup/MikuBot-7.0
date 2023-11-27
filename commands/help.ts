@@ -1,6 +1,6 @@
 import { activeCommands } from "../handler/activeCommands";
 
-export function help(interaction: any, args: any, loggerHandler: any) {
+export default function help(interaction: any, args: any, loggerHandler: any) {
     interaction.reply({
         embeds: [{
             title: "Help",
