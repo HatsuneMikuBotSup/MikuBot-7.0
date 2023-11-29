@@ -21,18 +21,21 @@ import { EventHandler } from "./handler/eventHandler";
 import { LoggerHandler } from "./handler/loggerHandler";
 import { GuildHandler } from "./handler/guildHandler";
 import { MessageHandler } from "./handler/messageHandler";
+import { DatabaseHandler } from "./handler/databaseHandler";
+
 const loggerHandler = new LoggerHandler(client);
+const databaseHandler = new DatabaseHandler(loggerHandler);
 const guildHandler = new GuildHandler(client, loggerHandler);
 const messageHandler = new MessageHandler(client, loggerHandler);
 const commandHandler = new CommandHandler(client, loggerHandler);
 const eventHandler = new EventHandler(client, loggerHandler);
-const bootHandler = new BootHandler(client, loggerHandler, commandHandler);
+const bootHandler = new BootHandler(client, loggerHandler, commandHandler, databaseHandler);
 
 
 //----------------------------------------------------------------- Setup Client.on
 
-client.on("ready", (x: any) => {
-    bootHandler.boot();
+client.on("ready", async (x: any) => {
+    await bootHandler.boot();
 });
 
 client.on("interactionCreate", async (interaction: any) => {

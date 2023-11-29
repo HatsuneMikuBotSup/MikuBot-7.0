@@ -5,3 +5,4 @@
 - [ ] Host on Raspberry PI
 - [ ] Miku AI Chatbot
 - [ ] Image API
+- [ ] Weird /choke bug (DiscordAPIError[10062]: Unknown interaction)

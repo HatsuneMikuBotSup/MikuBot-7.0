@@ -25,9 +25,8 @@ export class CommandHandler {
         this.loggerHandler.log("CommandHandler", `${commandInteraction} was executed by ${interaction.user.tag}`);
         commandFunction(interaction, args, this.loggerHandler, activeCommands, this.client);
     }
-    registerCommands() {
-        this.loggerHandler.log("CommandHandler", "Registering Slash commands");
-        this.client.application?.commands.set(activeCommands);
+    async registerCommands() {
+        return await this.client.application?.commands.set(activeCommands).then(this.loggerHandler.log("CommandHandler", "Registered Slash commands"));
     }
 }
 
